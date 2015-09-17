@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<root>
+    <item>
+        <name>Remap Command_R to underscore (_)</name>
+        <appendix>Easier to type this way.</appendix>
+     
+        <identifier>command_r_to_underscore</identifier>
+     
+        <autogen>
+            --KeyToKey--
+            KeyCode::COMMAND_R,
+     
+            KeyCode::MINUS,
+            ModifierFlag::SHIFT_L
+        </autogen>
+    </item>
+    <item>
+        <name>Remap Option_R to tilde (~)</name>
+        <appendix>Easier to type this way.</appendix>
+     
+        <identifier>option_r_to_tilde</identifier>
+     
+        <autogen>
+            --KeyToKey--
+            KeyCode::OPTION_R,
+     
+            KeyCode::BACKQUOTE,
+            ModifierFlag::SHIFT_L
+        </autogen>
+    </item>
+    <item>
+        <name>Remap Shift_L-Space to Underscore (_)</name>
+        <appendix>Easier to type this way.</appendix>
+     
+        <identifier>shift_space_to_underscore</identifier>
+     
+        <autogen>
+            --KeyToKey--
+            KeyCode::SPACE,
+            ModifierFlag::SHIFT_L,
+     
+            KeyCode::MINUS,
+            ModifierFlag::SHIFT_L
+        </autogen>
+    </item>
+</root>

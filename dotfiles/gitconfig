@@ -1,0 +1,48 @@
+[user]
+	name = Alexei Sholik
+	email = alcosholik@gmail.com
+[color]
+        ui = auto
+[color "branch"]
+       current = green reverse
+       local = green
+       remote = blue
+[alias]
+        co = checkout
+        ci = commit
+        rb = rebase
+        st = status
+        cp = cherry-pick
+        lgraph = log --oneline --graph
+        lg = log --oneline --decorate -5
+        brief = show --stat
+[core]
+        autocrlf = false
+        excludesfile = ~/.gitexcludes
+        attributesfile = ~/.gitattributes
+	quotepath = false
+[imap]
+	folder = "Drafts"
+	host = imaps://imap.gmail.com
+	user = alcosholik@gmail.com
+	port = 993
+	sslverify = false
+[sendemail]
+	smtpencryption = tls
+	smtpserver = smtp.gmail.com
+	smtpuser = alcosholik@gmail.com
+	smtpserverport = 587
+[diff]
+	renames = copies
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[github]
+	user = alco
+[push]
+	default = current
+[rerere]
+	enabled = true

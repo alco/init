@@ -1,0 +1,8 @@
+# Set up two horizontal panes.
+# The one on the bottom is 10 lines high and runs a terminal
+# The one on the top can be used to open vim
+
+selectp -t 0    # select the first (0) pane
+splitw -v -l 10 # split it into two parts
+selectp -t 0    # go back to the first pane
+resize-pane -Z  # zoom it in
