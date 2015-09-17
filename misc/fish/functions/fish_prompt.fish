@@ -9,6 +9,9 @@ function fish_prompt --description 'Write out the prompt'
     if not set -q __fish_color_status
         set -g __fish_color_status (set_color red)
     end
+    if not set -q __fish_color_remote_commits
+        set -g __fish_color_remote_commits (set_color yellow)
+    end
     if not set -q user_home_prefix
         set -g user_home_prefix (echo ~ | sed 's/\//\\\\&/g')
     end
@@ -49,6 +52,23 @@ function fish_prompt --description 'Write out the prompt'
             if test $status -eq 0
                 if test "$git_branch" = "HEAD"
                     set git_branch (git rev-parse --short HEAD)
+                else
+                    # Check how many commits ahead the corresponding origin branch is
+                    set local_commits (git log --format='format:.' origin/"$git_branch"..  2>/dev/null)
+                    if test $status -eq 0
+                        set num_future_local_commits (echo -n $local_commits | awk 'END {print NR;}')
+                        if test $num_future_local_commits -eq 0
+                            set -e num_future_local_commits
+                        else
+                            set num_future_local_commits ".$num_future_local_commits"
+                        end
+                        set num_future_remote_commits (git log --format='format:.' ..origin/"$git_branch" | awk 'END {print NR;}')
+                        if test $num_future_remote_commits -eq 0
+                            set -e num_future_remote_commits
+                        else
+                            set num_future_remote_commits "ˆ$num_future_remote_commits"
+                        end
+                    end
                 end
                 set git_branch " $git_branch"
             else
@@ -83,8 +103,12 @@ function fish_prompt --description 'Write out the prompt'
         printf '%s' "$directory"
 
         if set -q print_git
-            printf '%s%s%s%s%s' \
-                "$__fish_prompt_cwd" "$git_branch" "$__fish_color_status" "$git_status" "$__fish_prompt_normal"
+            printf '%s%s%s%s%s%s%s' \
+                "$__fish_prompt_cwd" "$git_branch" \
+                "$__fish_color_status" "$git_status" \
+                "$__fish_prompt_cwd" "$num_future_local_commits" \
+                "$__fish_color_remote_commits" "$num_future_remote_commits" \
+                "$__fish_prompt_normal"
         end
             
         printf '%s%s%s %s\f\r$ ' \
