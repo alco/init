@@ -4,6 +4,8 @@ set nocompatible
 let mapleader="'"
 
 call plug#begin()
+  Plug 'tpope/vim-sensible'
+
   Plug 'kien/ctrlp.vim'
 
   Plug 'vim-airline/vim-airline'
@@ -82,16 +84,10 @@ map <D-9> 9gt
 map <D-0> :tablast<CR>
 
 " Basic functionality
-set encoding=utf-8
 set showcmd
-set ruler                       " show the line and column numbers
 set showmode
-set scrolloff=3                 " minimum number of lines displayed around the cursor
-set autoindent
-set backspace=indent,eol,start
 set hidden                      " don't ask to save a buffer before hiding it
 set nospell
-set autoread
 
 nmap <Leader>cw :e <C-R>=expand("%:h") . "/" <CR>
 "nmap <Leader>et :tabe <C-R>=expand("%:h") . "/" <CR>
@@ -211,7 +207,6 @@ autocmd CursorMoved,InsertEnter *
     \ if &l:cursorline | setlocal nocursorline nocursorcolumn | endif
 
 
-set laststatus=2
 "set paste  " Fixes indentation problems with pasting
 
 " select the whole line without the newline char
@@ -226,7 +221,6 @@ nmap <Leader>r /\s\+$<CR>
 vmap <Leader>p :w !pbcopy<CR><CR>
 
 set wildmode=list:longest,full
-set wildmenu
 hi CursorLine cterm=none ctermbg=black ctermfg=none
 hi CursorColumn cterm=none ctermbg=black ctermfg=none
 hi ColorColumn ctermbg=black
