@@ -52,8 +52,6 @@ nmap <C-down> ]e
 vmap <C-up> [egv
 vmap <C-down> ]egv
 
-nmap <Leader>b i<CR><ESC>
-
 map K <nop>
 map <F1> <nop>
 imap <F1> <ESC>
