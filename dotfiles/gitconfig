@@ -2,25 +2,29 @@
 	name = Alexei Sholik
 	email = alcosholik@gmail.com
 [color]
-        ui = auto
+    ui = auto
 [color "branch"]
-       current = green reverse
-       local = green
-       remote = blue
+    current = green reverse
+    local = green
+    remote = blue
 [alias]
-        co = checkout
-        ci = commit
-        rb = rebase
-        st = status
-        cp = cherry-pick
-        lgraph = log --oneline --graph
-        lg = log --oneline --decorate -5
-        brief = show --stat
+    co = checkout
+    ci = commit
+    rb = rebase
+    st = status
+    cp = cherry-pick
+    lgraph = log --oneline --graph
+    lg = log --oneline --decorate -5
+    brief = show --stat
+    pr-rebase = !git rebase -i --autosquash $(git merge-base HEAD origin/master)
 [core]
-        autocrlf = false
-        excludesfile = ~/.gitexcludes
-        attributesfile = ~/.gitattributes
+    autocrlf = false
+    excludesfile = ~/.gitexcludes
+    attributesfile = ~/.gitattributes
 	quotepath = false
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[interactive]
+	diffFilter = diff-so-fancy
 [imap]
 	folder = "Drafts"
 	host = imaps://imap.gmail.com
@@ -45,4 +49,8 @@
 [push]
 	default = current
 [rerere]
-	enabled = true
+	enabled = false
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true

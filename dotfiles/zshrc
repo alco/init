@@ -135,3 +135,6 @@ export GOPATH=$HOME/extra/goworkspace
 alias tnux='tmux new-session -s'
 
 alias postgresql='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+
+fpath=(~/home/bin/zsh/functions $fpath)
+autoload $(ls ~/home/bin/zsh/functions)

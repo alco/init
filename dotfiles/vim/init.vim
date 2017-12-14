@@ -29,16 +29,13 @@ vmap k gk
 
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
-nnoremap <Leader>m :CtrlPMRUFiles<CR>
-nnoremap <Leader>f :CtrlPCurFile<CR>
 nnoremap <Leader>s :w<CR>
+nnoremap <CR> G
 
 " Tagged tuple from a value
 nmap <Leader>ct ysaw}a, <Esc>hi:
 
 let g:ctrlp_working_path_mode = 0
-let g:ctrlp_show_hidden = 1
-"let g:ctrlp_default_input = 0
 
 " Set a different key to update the cache for ctrlp
 let g:ctrlp_prompt_mappings = {'PrtClearCache()': ['<Tab>']}"
@@ -260,9 +257,9 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 "let g:airline_theme = 'badwolf'
 let g:airline_theme='light'
-hi CursorLine cterm=none ctermbg=black ctermfg=none
-hi CursorColumn cterm=none ctermbg=black ctermfg=none
-hi ColorColumn ctermbg=black
+hi CursorLine cterm=none ctermbg=white ctermfg=none
+hi CursorColumn cterm=none ctermbg=white ctermfg=none
+hi ColorColumn ctermbg=white
 
 "let g:bufferline_echo = 0
 
@@ -289,38 +286,3 @@ nmap s :call KillNextHighlighted()<CR>
 
 " Set Silver Search as the backend for CtrlP
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-
-
-" Compatible with ranger 1.4.2 through 1.7.*
-"
-" Add ranger as a file chooser in vim
-"
-" If you add this code to the .vimrc, ranger can be started using the command
-" ":RangerChooser" or the keybinding "<leader>r".  Once you select one or more
-" files, press enter and ranger will quit again and vim will open the selected
-" files.
-
-function! RangeChooser()
-    let temp = tempname()
-    exec 'silent !ranger --choosefiles=' . shellescape(temp) . ' ' . expand('%:p:h')
-    if !filereadable(temp)
-        redraw!
-        " Nothing to read.
-        return
-    endif
-    let names = readfile(temp)
-    if empty(names)
-        redraw!
-        " Nothing to open.
-        return
-    endif
-    " Edit the first item.
-    exec 'edit ' . fnameescape(names[0])
-    " Add any remaning items to the arg list/buffer list.
-    for name in names[1:]
-        exec 'argadd ' . fnameescape(name)
-    endfor
-    redraw!
-endfunction
-command! -bar RangerChooser call RangeChooser()
-nnoremap <leader>r :<C-U>RangerChooser<CR>

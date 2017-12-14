@@ -56,7 +56,7 @@ function fish_prompt --description 'Write out the prompt'
                     # Check how many commits ahead the corresponding origin branch is
                     set local_commits (git log --format='format:.' origin/"$git_branch"..  2>/dev/null)
                     if test $status -eq 0
-                        set num_future_local_commits (echo -n $local_commits | awk 'END {print NR;}')
+                        set num_future_local_commits (git log --format='format:.' origin/"$git_branch"..  2>/dev/null | awk 'END {print NR;}')
                         if test $num_future_local_commits -eq 0
                             set -e num_future_local_commits
                         else
