@@ -1,6 +1,8 @@
-/misc/fish/fish_history
-/misc/fish/fish_read_history
-/misc/fish/fishd.*
+dotfiles/config/alacritty/alacritty.yml.old
+
+dotfiles/config/fish/fish_history
+dotfiles/config/fish/fish_read_history
+dotfiles/config/fish/fishd.*
 
 dotfiles/tmux/plugins
 
