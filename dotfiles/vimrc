@@ -200,11 +200,12 @@ set number
 "" is too fast
 "set cursorline
 "nmap <Leader>' :silent execute "if &updatetime == 200<CR>:set updatetime=4000<CR>:else<CR>:set updatetime=200<CR>:endif<CR>"<CR>
-set updatetime=400
+set updatetime=10
+set scrolloff=3                 " minimum number of lines displayed around the cursor
 "" Show the cursorline temporarily when idle
-autocmd CursorHold * setlocal cursorline cursorcolumn
-autocmd CursorMoved,InsertEnter *
-    \ if &l:cursorline | setlocal nocursorline nocursorcolumn | endif
+"setlocal cursorline cursorcolumn
+" autocmd CursorMoved,InsertEnter *
+"    \ if &l:cursorline | setlocal nocursorline nocursorcolumn | endif
 
 
 "set paste  " Fixes indentation problems with pasting
@@ -228,7 +229,7 @@ hi ColorColumn ctermbg=black
 "let g:bufferline_echo = 0
 
 "set timeoutlen=50 ttimeoutlen=10
-set noesckeys
+"set noesckeys
 
 "" Unite setup to fuzzy-match full paths in the current dir recursively
 "call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -281,3 +282,6 @@ function! RangeChooser()
 endfunction
 command! -bar RangerChooser call RangeChooser()
 nnoremap <leader>r :<C-U>RangerChooser<CR>
+
+" Make it possible to go to a numbered line via CR
+nnoremap <CR> G
