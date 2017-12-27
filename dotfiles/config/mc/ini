@@ -83,6 +83,8 @@ editor_stop_format_chars=-+*\\,.;:&>
 mcview_eof=
 skin=gray-green-purple256
 
+filepos_max_saved_entries=1024
+
 [Layout]
 message_visible=1
 keybar_visible=1

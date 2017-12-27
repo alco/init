@@ -3,6 +3,11 @@ set nocompatible
 
 let mapleader="'"
 
+" vim-easyclip
+  " Remap the mark key to not conflict with easyclip's 'move'
+  nnoremap gm m
+  let g:EasyClipUseSubstituteDefaults = 1
+
 call plug#begin()
   Plug 'tpope/vim-sensible'
 
@@ -13,13 +18,22 @@ call plug#begin()
 
   Plug 'elixir-editors/vim-elixir'
 
+  Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-unimpaired'
-
   Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-commentary'
+
+  Plug 'francoiscabrol/ranger.vim'
+    Plug 'rbgrouleff/bclose.vim'
+
+  Plug '907th/vim-auto-save'
+
+  Plug 'svermeulen/vim-easyclip'
 call plug#end()
 
 " CtrlP
-  nnoremap <Leader>o :CtrlP<CR>
+  let g:ctrlp_map = '<Leader>o'
+  " nnoremap <Leader>o :CtrlP<CR>
   nnoremap <Leader>b :CtrlPBuffer<CR>
   nnoremap <Leader>m :CtrlPMRUFiles<CR>
   nnoremap <Leader>f :CtrlPCurFile<CR>
@@ -40,13 +54,26 @@ call plug#end()
   endif
 
   " unicode symbols
-  let g:airline_left_sep = '▶'
-  let g:airline_right_sep = '◀'
-  let g:airline_symbols.branch = '⎇'
-  let g:airline_symbols.paste = 'π'
-  let g:airline_symbols.whitespace = 'Ξ'
+  "let g:airline_left_sep = '▶'
+  "let g:airline_right_sep = '◀'
+  "let g:airline_symbols.branch = '⎇'
+  "let g:airline_symbols.paste = 'π'
+  "let g:airline_symbols.whitespace = 'Ξ'
 
-  let g:airline_theme='light'
+  let g:airline_theme='cool'
+
+" Ranger
+  let g:ranger_map_keys = 0
+  nnoremap <Leader>r :Ranger<CR>
+
+" vim-auto-save
+  let g:auto_save = 1
+  let g:auto_save_silent = 1
+
+
+" True color support
+execute "set t_8f=38;2;%lu;%lu;%lum"
+execute "set t_8b=48;2;%lu;%lu;%lum"
 
 " Line moving shortcuts, require unimpaired
 nmap <C-up> [e
@@ -54,18 +81,17 @@ nmap <C-down> ]e
 vmap <C-up> [egv
 vmap <C-down> ]egv
 
-map K <nop>
 map <F1> <nop>
 imap <F1> <ESC>
 
-map H <nop>
-map L <nop>
+map K <nop>
+" map H <nop>
+" map L <nop>
 
 nmap j gj
 nmap k gk
 vmap j gj
 vmap k gk
-nnoremap <Leader>s :w<CR>
 
 " Tagged tuple from a value
 nmap <Leader>ct ysaw}a, <Esc>hi:
@@ -193,8 +219,12 @@ set backupdir=~/tmp//,/var/tmp//,/tmp//
 
 
 " Color scheme
-"hi Search cterm=underline ctermfg=yellow ctermbg=none
-"hi Visual cterm=none ctermfg=none ctermbg=lightmagenta
+"set termguicolors
+"colorscheme codeschool
+"
+hi Search cterm=none ctermfg=black ctermbg=gray
+hi Visual cterm=none ctermfg=black ctermbg=cyan
+
 set number
 "" The cursorline can slow down scrolling when the system key repetition rate
 "" is too fast
@@ -215,16 +245,13 @@ nmap <Leader>l ^v$h
 " execute the whole line as a vim command
 nmap <Leader>y <Leader>ly:<C-R>0<CR>
 
-" highlight trailing whitespace
-nmap <Leader>r /\s\+$<CR>
-
 " copy to system pasteboard
 vmap <Leader>p :w !pbcopy<CR><CR>
 
 set wildmode=list:longest,full
-hi CursorLine cterm=none ctermbg=black ctermfg=none
-hi CursorColumn cterm=none ctermbg=black ctermfg=none
-hi ColorColumn ctermbg=black
+"hi CursorLine cterm=none ctermbg=black ctermfg=none
+"hi CursorColumn cterm=none ctermbg=black ctermfg=none
+"hi ColorColumn ctermbg=black
 
 "let g:bufferline_echo = 0
 
@@ -248,40 +275,6 @@ function! KillNextHighlighted()
   endif
 endfunction
 nmap s :call KillNextHighlighted()<CR>
-
-
-" Compatible with ranger 1.4.2 through 1.7.*
-"
-" Add ranger as a file chooser in vim
-"
-" If you add this code to the .vimrc, ranger can be started using the command
-" ":RangerChooser" or the keybinding "<leader>r".  Once you select one or more
-" files, press enter and ranger will quit again and vim will open the selected
-" files.
-function! RangeChooser()
-    let temp = tempname()
-    exec 'silent !ranger --choosefiles=' . shellescape(temp) . ' ' . expand('%:p:h')
-    if !filereadable(temp)
-        redraw!
-        " Nothing to read.
-        return
-    endif
-    let names = readfile(temp)
-    if empty(names)
-        redraw!
-        " Nothing to open.
-        return
-    endif
-    " Edit the first item.
-    exec 'edit ' . fnameescape(names[0])
-    " Add any remaning items to the arg list/buffer list.
-    for name in names[1:]
-        exec 'argadd ' . fnameescape(name)
-    endfor
-    redraw!
-endfunction
-command! -bar RangerChooser call RangeChooser()
-nnoremap <leader>r :<C-U>RangerChooser<CR>
 
 " Make it possible to go to a numbered line via CR
 nnoremap <CR> G

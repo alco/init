@@ -1,1 +1,32 @@
 mkdir config
+search vim
+rename 20171218165519_create_team_invitations.exs
+rename 20171218165616_drop_team_membership_status_pending.exs
+search timber
+search timb
+shell 
+find kind
+search kind
+search_inc kind
+find tmp
+searc
+find pap
+cd Dropbox/papers/
+cd
+find ra
+search rang
+rename ranger-cd.fish
+search drop
+rename ranger_cd.fish
+open_with 
+touch mutator.ex
+search slugger
+search index
+touch scoring.ex
+touch adjacency_graphs.ex
+delete
+rename zxcvbn.ex
+search main
+search lifecycle
+search plug
+search phoenix

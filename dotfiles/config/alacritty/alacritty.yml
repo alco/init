@@ -30,27 +30,27 @@ padding:
 tabspaces: 8
 
 # When true, bold text is drawn using the bright variant of colors.
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false
 
 # Font configuration (changes require restart)
 font:
   # The normal (roman) font face to use.
   normal:
-    family: Monaco
+    family: Droid Sans Mono
     # Style can be specified to pick a specific face.
-    style: Regular
+    #style: Regular
 
   # The bold font face
   bold:
-    family: Monaco
+    family: Droid Sans Mono
     # Style can be specified to pick a specific face.
-    style: Bold
+    #style: Bold
 
   # The italic font face
   italic:
-    family: Monaco
+    family: Droid Sans Mono
     # Style can be specified to pick a specific face.
-    style: Italic
+    #style: Italic
 
   # Point size of the font
   size: 14.0
@@ -137,7 +137,35 @@ color_schemes:
       cyan:    '0x3971ed'
       white:   '0xffffff'
 
-colors: *dark
+  test: &test
+    # Default colors
+    primary:
+      background: '0x151515'
+      foreground: '0xd0d0d0'
+
+    # Normal colors
+    normal:
+      black:   '0x151515'
+      red:     '0xac4142'
+      green:   '0x90a959'
+      yellow:  '0xf4bf75'
+      blue:    '0x6a9fb5'
+      magenta: '0xaa759f'
+      cyan:    '0x75b5aa'
+      white:   '0xd0d0d0'
+
+    # Bright colors
+    bright:
+      black:   '0x505050'
+      red:     '0xac4142'
+      green:   '0x90a959'
+      yellow:  '0xf4bf75'
+      blue:    '0x6a9fb5'
+      magenta: '0xaa759f'
+      cyan:    '0x75b5aa'
+      white:   '0xf5f5f5'
+
+colors: *light
 
 # Visual Bell
 #
@@ -351,3 +379,10 @@ key_bindings:
   - { key: F10,      mods: Command, chars: "\x1b[21;3~"                  }
   - { key: F11,      mods: Command, chars: "\x1b[23;3~"                  }
   - { key: F12,      mods: Command, chars: "\x1b[24;3~"                  }
+# Custom key bindings
+  - { key: Key6,     mods: Control, chars: "\x1e"                        }
+  - { key: B,        mods: Alt,     chars: "\x1bb"                       }
+  - { key: D,        mods: Alt,     chars: "\x1bd"                       }
+  - { key: E,        mods: Alt,     chars: "\x1be"                       }
+  - { key: F,        mods: Alt,     chars: "\x1bf"                       }
+  - { key: Y,        mods: Alt,     chars: "\x1by"                       }
