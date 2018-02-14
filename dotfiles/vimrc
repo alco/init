@@ -126,9 +126,9 @@ nnoremap <C-q> {gq}                 " fill current paragraph
 set modelines=0
 
 " Tab settings
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 " Don't wrap long lines automatically
