@@ -17,9 +17,10 @@
     lg = log --oneline --decorate -5
     brief = show --stat
     pr-rebase = !git rebase -i --autosquash $(git merge-base HEAD origin/master)
+  bname = rev-parse --abbrev-ref HEAD
 [core]
     autocrlf = false
-    excludesfile = ~/.gitexcludes
+	excludesfile = /Users/alco/.gitexcludes
     attributesfile = ~/.gitattributes
 	quotepath = false
 	pager = diff-so-fancy | less --tabs=4 -RFX
@@ -38,11 +39,12 @@
 	smtpserverport = 587
 [diff]
 	renames = copies
+  algorithm = patience
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [github]
 	user = alco
