@@ -1,8 +1,12 @@
 dotfiles/config/alacritty/alacritty.yml.old
 
+dotfiles/config/configstore
+
 dotfiles/config/fish/fish_history
 dotfiles/config/fish/fish_read_history
 dotfiles/config/fish/fishd.*
+
+dotfiles/config/ranger/history
 
 dotfiles/tmux/plugins
 
