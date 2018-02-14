@@ -6,6 +6,7 @@ dotfiles/config/fish/fish_history
 dotfiles/config/fish/fish_read_history
 dotfiles/config/fish/fishd.*
 
+dotfiles/config/ranger/bookmarks
 dotfiles/config/ranger/history
 
 dotfiles/tmux/plugins
