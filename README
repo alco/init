@@ -4,7 +4,7 @@ Link dotfiles:
 
 Install Hombrew:
 
-    /usr/bin/ruby -e "$(curl -sL https://tinyurl.com/brew-sh)"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew bundle
 
 Change login shell to Fish:
