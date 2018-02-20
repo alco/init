@@ -1,6 +1,6 @@
 [user]
-	name = Alexei Sholik
-	email = alcosholik@gmail.com
+    name = Alexei Sholik
+    email = alcosholik@gmail.com
 [color]
     ui = auto
 [color "branch"]
@@ -17,43 +17,43 @@
     lg = log --oneline --decorate -5
     brief = show --stat
     pr-rebase = !git rebase -i --autosquash $(git merge-base HEAD origin/master)
-  bname = rev-parse --abbrev-ref HEAD
+    bname = rev-parse --abbrev-ref HEAD
 [core]
     autocrlf = false
-	excludesfile = /Users/alco/.gitexcludes
+    excludesfile = /Users/alco/.gitexcludes
     attributesfile = ~/.gitattributes
-	quotepath = false
-	pager = diff-so-fancy | less --tabs=4 -RFX
+    quotepath = false
+    pager = diff-so-fancy | less --tabs=4 -RFX
 [interactive]
-	diffFilter = diff-so-fancy
+    diffFilter = diff-so-fancy
 [imap]
-	folder = "Drafts"
-	host = imaps://imap.gmail.com
-	user = alcosholik@gmail.com
-	port = 993
-	sslverify = false
+    folder = "Drafts"
+    host = imaps://imap.gmail.com
+    user = alcosholik@gmail.com
+    port = 993
+    sslverify = false
 [sendemail]
-	smtpencryption = tls
-	smtpserver = smtp.gmail.com
-	smtpuser = alcosholik@gmail.com
-	smtpserverport = 587
+    smtpencryption = tls
+    smtpserver = smtp.gmail.com
+    smtpuser = alcosholik@gmail.com
+    smtpserverport = 587
 [diff]
-	renames = copies
-  algorithm = patience
+    renames = copies
+    algorithm = patience
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
 [github]
-	user = alco
+    user = alco
 [push]
-	default = current
+    default = current
 [rerere]
-	enabled = false
+    enabled = false
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    required = true
+    process = git-lfs filter-process
