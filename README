@@ -1,0 +1,13 @@
+Link dotfiles:
+
+    ./init.sh
+
+Install Hombrew:
+
+    /usr/bin/ruby -e "$(curl -sL https://tinyurl.com/brew-sh)"
+    brew bundle
+
+Change login shell to Fish:
+
+    # add /usr/local/bin/fish to /etc/shells
+    chsh -s /usr/local/bin/fish
