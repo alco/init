@@ -278,3 +278,5 @@ nmap s :call KillNextHighlighted()<CR>
 
 " Make it possible to go to a numbered line via CR
 nnoremap <CR> G
+
+:hi Visual ctermbg=253 ctermfg=none
