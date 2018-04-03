@@ -9,6 +9,10 @@ dotfiles/config/fish/fishd.*
 dotfiles/config/ranger/bookmarks
 dotfiles/config/ranger/history
 
+dotfiles/config/ToothAndTail
+
+dotfiles/config/yarn
+
 dotfiles/tmux/plugins
 
 dotfiles/vim/plugged
