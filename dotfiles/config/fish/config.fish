@@ -13,3 +13,6 @@ set -x PERL5LIB "/Users/alco/.opam/system/lib/perl5:$PERL5LIB"
 set -x MANPATH $MANPATH ~/.opam/system/man
 set -x OPAMUTF8MSGS 1
 set -x CAML_LD_LIBRARY_PATH "/Users/alco/.opam/system/lib/stublibs:/usr/local/lib/ocaml/stublibs"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/alco/Downloads/google-cloud-sdk 2/path.fish.inc' ]; if type source > /dev/null; source '/Users/alco/Downloads/google-cloud-sdk 2/path.fish.inc'; else; . '/Users/alco/Downloads/google-cloud-sdk 2/path.fish.inc'; end; end
