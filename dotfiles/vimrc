@@ -8,6 +8,9 @@ let mapleader="'"
   nnoremap gm m
   let g:EasyClipUseSubstituteDefaults = 1
 
+" bclose
+  let g:no_plugin_maps = 1
+
 call plug#begin()
   Plug 'tpope/vim-sensible'
 
@@ -69,7 +72,6 @@ call plug#end()
 " vim-auto-save
   let g:auto_save = 1
   let g:auto_save_silent = 1
-
 
 " True color support
 execute "set t_8f=38;2;%lu;%lu;%lum"
@@ -209,7 +211,9 @@ let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 
 let g:vimwiki_list = [{'path': '~/home/vimwiki/'}]
 
-" Store swap-files and backups in a single place
+" No backup files please
+set nobackup
+set nowritebackup
 set directory=~/tmp//,/var/tmp//,/tmp//
 set backupdir=~/tmp//,/var/tmp//,/tmp//
 
