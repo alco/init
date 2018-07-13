@@ -24,8 +24,6 @@
     attributesfile = ~/.gitattributes
     quotepath = false
     pager = diff-so-fancy | less --tabs=4 -RFX
-[interactive]
-    diffFilter = diff-so-fancy
 [imap]
     folder = "Drafts"
     host = imaps://imap.gmail.com

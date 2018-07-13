@@ -16,3 +16,5 @@ xcuserdata
 .swp
 erl_crash.dump
 *.beam
+.elixir_ls
+.vscode
