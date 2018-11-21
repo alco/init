@@ -1,5 +1,5 @@
 \pset null ∅
-\pset format wrapped
+\pset format aligned
 
 \x auto
 \set COMP_KEYWORD_CASE upper
