@@ -2,7 +2,12 @@ set -x EDITOR vim
 set -x LC_ALL en_US.UTF-8
 set -x COLORTERM truecolor
 
-set -x PATH $PATH /usr/local/sbin
+set -x PATH $PATH /usr/local/go/bin
+
+# Make binaries installed by yarn available globally
+set -x PATH $PATH ~/.yarn/bin
+
+set -x ERL_AFLAGS "-kernel shell_history enabled"
 
 #source /usr/local/opt/asdf/asdf.fish
 
